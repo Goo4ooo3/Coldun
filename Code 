@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go! - Hello in my Web</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: center;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #3498db;
+            color: white;
+            padding: 10px;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 15px;
+            padding: 10px 29px;
+            background-color: #2ecc71;
+            color: white;
+            text-decoration: none;
+            border-radius: 69px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .box {
+            width: 80%;
+            max-width: 300px;
+            background-color: #fff;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            margin: 10px 0;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 9.1);
+        }
+        .box h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .box p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>𝒢𝑜   𝓂𝑒</h1>
+  <p>Hello in my wep</p>
+  </header>
+   
+   <p>
+    <div class="container">
+        <div class="box">
+            <h2>Communicate</h2>
+<p>01123961290
+ <p>mohamed6aslam@gmail.com</p>
+ </script>
+</body>
+</html></p>
+        </div>
+        <div class="box">
+            <h2>Catalog</h2>
+            <p>https://wa.me/c201095235427</p>
+        </div>
+        <div class="box">
+            <h2>Precis</h2>
+            <p>اكتب هنا</p>
+        </div>
+    </div>
+</body>
+</html>
