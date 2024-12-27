@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نموذج تسجيل</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        input[type="text"], input[type="tel"] {
+            width: 95%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #25D366; /* لون WhatsApp */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #128C7E;
+        }
+    </style>
+</head>
+<body>
+<h1>Hello in GO    <input type="text" id="name" placeholder="الاسم" required>
+    <input type="text" id="email" placeholder="البريد الإلكتروني" required>
+    <input type="tel" id="phone" placeholder="رقم الهاتف" required>
+    <button onclick="sendToWhatsApp()">next</button>
+
+    <script>
+        function sendToWhatsApp() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var phone = document.getElementById("phone").value;
+
+            // صياغة الرسالة
+            var message = `اسم: ${name}\nالبريد الإلكتروني: ${email}\nرقم الهاتف: ${phone}`;
+            var whatsappNumber = "201123961290"; // رقم الهاتف
+            var whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+            // توجيه المستخدم إلى WhatsApp
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+
+</body>
+</html>

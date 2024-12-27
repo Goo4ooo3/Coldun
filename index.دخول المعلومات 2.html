@@ -1,0 +1,74 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نموذج تسجيل مستخدم</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh; /* ملء الشاشة */
+            display: flex;
+            justify-content: center; /* محاذاة المحتوى أفقياً */
+            align-items: center; /* محاذاة المحتوى عمودياً */
+            background-color: #f0f4f8; /* لون خلفية الصفحة */
+            font-family: Arial, sans-serif; /* خط الصفحة */
+        }
+        .registration-form {
+            background: #; /* لون خلفية النموذج */
+            padding: 30px; /* حشوة داخلية */
+            border-radius: 10px; /* زوايا دائرية */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 9.1); /* ظل */
+            width: 300px; /* عرض النموذج */
+            text-align: center; /* محاذاة النص إلى الوسط */
+        }
+        h2 {
+            margin-bottom: 20px; /* مسافة أسفل العنوان */
+            color: #333; /* لون النص */
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%; /* عرض المدخل */
+            padding: 10px; /* حشوة داخلية */
+            margin: 10p
+            x 0; /* هوامش */
+            border: 1px solid #ccc; /* حد */
+            border-radius: 5px; /* زوايا دائرية */
+            font-size: 14px; /* حجم الخط */
+        }
+        button {
+            padding: 10px; /* حشوة داخلية */
+            border: none; /* إزالة الحدود */
+            border-radius: 5px; /* زوايا دائرية */
+            background-color: #09907bff; /* لون زر */
+            color: white; /* لون النص */
+            font-size: 16px; /* حجم الخط */
+            cursor: pointer; /* تغيير المؤشر عند التمرير فوق الزر */
+            transition: background-color 0.3s; /* تأثير الانتقال عند تغيير اللون */
+        }
+        button:hover {
+            background-color: #0056b3; /* تغيير لون الزر عند التمرير */
+        }
+        .message {
+            margin-top: 15px; /* مسافة أعلى الرسالة */
+            font-size: 14px; /* حجم النص */
+            color: #666; /* لون النص */
+        }
+    </style>
+</head>
+<body>
+
+<div class="registration-form">
+    <h2>تسجيل مستخدم</h2>
+    <form action="#" method="post">
+        <input type="text" placeholder="رقم الهاتف" required>
+        <input type="email" placeholder="البريد الإلكتروني" required>
+        <input type="password" placeholder="كلمة المرور" required>
+        <button type="submit">تسجيل</button>
+    </form>
+    <div class="message">لديك حساب؟ <a href="#">تسجيل الدخول</a></div>
+
+<div>  <a href="#">أنشاء حساب</a></div>
+ 
+
+</body>
+</html>

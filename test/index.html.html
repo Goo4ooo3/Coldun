@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login and Signup UI</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(to right, #eef2f3, #8e9eab);
+    }
+
+    .container {
+      display: flex;
+      width: 700px;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .sign-in {
+      flex: 1;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .sign-in h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .social-icons a {
+      text-decoration: none;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      border-radius: 50%;
+      background: #ddd;
+      color: #333;
+      font-size: 18px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .forgot {
+      margin-bottom: 20px;
+      font-size: 14px;
+      text-align: right;
+      color: #555;
+    }
+
+    .sign-in button {
+      padding: 10px 20px;
+      border: none;
+      background: #6c63ff;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .sign-up {
+      flex: 1;
+      background: #6c63ff;
+      color: white;
+      padding: 30px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .sign-up h2 {
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    .sign-up p {
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .sign-up button {
+      padding: 10px 20px;
+      border: none;
+      background: white;
+      color: #6c63ff;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sign-in">
+      <h2>Sign In</h2>
+    
+    <div class="social-icons">
+      
+        <a href="https://www.google.com">G+</a>
+        <a href="https://www.facebook.com">f</a>
+        <a href="https://www.linkedln.com">in</a>
+        <a href="https://www.microsoft.com">M</a>
+      </div>
+    
+      <p></p>
+      
+      <div class="form-group">
+        <input type="email" placeholder="Email" required>
+      </div>
+      <div class="form-group">
+        <input type="password" placeholder="Password" required>
+      </div></p>
+      <p class="forgot"></p>
+      <button onclick="window.location.href='index.home.html'">Login</button>
+    </div>
+    <div class="sign-up">
+      <h2>Go no Accont</h2>
+      <p></p>
+            <button onclick="window.location.href='index.home.html'">Login</button>
+
+    </div>
+  </div>
+</body>
+</html>

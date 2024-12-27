@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيق الملاحظات</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f8ff;
+            padding: 20px;
+        }
+        textarea {
+            width: 300px;
+            height: 100px;
+            margin: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h1>تطبيق الملاحظات</h1>
+<textarea id="noteInput" placeholder="اكتب ملاحظتك هنا..."></textarea>
+<br>
+<button onclick="addNote()">إضافة ملاحظة</button>
+
+<h2>الملاحظات:</h2>
+<ul id="noteList"></ul>
+
+<script>
+    const notes = [];
+
+    function addNote() {
+        const noteInput = document.getElementById('noteInput');
+        const note = noteInput.value.trim();
+
+        if (note) {
+            notes.push(note);
+            noteInput.value = '';
+            displayNotes();
+        } else {
+            alert("يرجى إدخال ملاحظة.");
+        }
+    }
+
+    function displayNotes() {
+        const noteList = document.getElementById('noteList');
+        noteList.innerHTML = '';
+
+        notes.forEach((note, index) => {
+            const li = document.createElement('li');
+            li.textContent = note;
+
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = "حذف";
+            deleteButton.onclick = () => deleteNote(index);
+
+            li.appendChild(deleteButton);
+            noteList.appendChild(li);
+        });
+    }
+
+    function deleteNote(index) {
+        notes.splice(index, 1);
+        displayNotes();
+    }
+</script>
+
+</body>
+</html>

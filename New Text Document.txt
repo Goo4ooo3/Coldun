@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go in Accont</title>
+</head>
+<style>
+    input[type="email"],
+    input[type="password"] {
+        width: 100%; /* ⁄—÷ «·ÕﬁÊ· */
+        padding: 10px; /* Õ‘Ê… œ«Œ·Ì… */
+        margin: 10px 0; /* „”«›… »Ì‰ «·ÕﬁÊ· */
+        border: 1px solid #dbdbdb; /* ÕœÊœ Œ›Ì›… */
+        border-radius: 4px; /* “Ê«Ì« œ«∆—Ì… */
+        font-size: 14px; /* ÕÃ„ «·Œÿ */
+    }
+    h1 {
+        margin-bottom: 20px; /* „”«›… √”›· «·⁄‰Ê«‰ */
+        color:rgb(25, 0, 255); /* ·Ê‰ «·⁄‰Ê«‰ */
+    } 
+    button {
+        width: 100%; /* ⁄—÷ «·“— */
+        padding: 10px; /* Õ‘Ê… œ«Œ·Ì… */
+        font-size: 16px; /* ÕÃ„ «·Œÿ */
+        color: white; /* ·Ê‰ «·‰’ */
+        background-color: #0095f6; /* ·Ê‰ «·“— */
+        border: none; /* ≈“«·… «·ÕœÊœ */
+        border-radius: 4px; /* “Ê«Ì« œ«∆—Ì… */
+        cursor: pointer; /*  €ÌÌ— ‘ﬂ· «·„ƒ‘— ⁄‰œ «·„—Ê— ›Êﬁ «·“— */
+        transition: background-color 0.3s; /*  √ÀÌ— ⁄‰œ  €ÌÌ— ·Ê‰ «·“— */
+    }
+    .container {
+        width: 100%;
+        max-width: 350px; /* ⁄—÷ «·Õœ «·√ﬁ’Ï ··’‰œÊﬁ */
+        background-color: ; /* ·Ê‰ Œ·›Ì… «·’‰œÊﬁ */
+        border-radius: 8px; /* “Ê«Ì« œ«∆—Ì… */
+        box-shadow: 0 1px 10px rgb(255, 10, 10); /* Ÿ· Œ›Ì› */
+        padding: 20px; /* Õ‘Ê… œ«Œ·Ì… */
+        text-align: center; /* „Õ«–«… «·‰’ ›Ì «·„‰ ’› */
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color:rgb(250, 252, 255); /* ·Ê‰ Œ·›Ì… «·’›Õ… */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    button:hover {
+        background-color: #007bbf; /* ·Ê‰ «·“— ⁄‰œ «· „—Ì— */
+    }
+    
+    p {
+        margin-top: 15px; /* „”«›… √⁄·Ï «·›ﬁ—… */
+    }
+    
+    a {
+        color:rgb(31, 6, 250); /* ·Ê‰ «·—«»ÿ */
+        text-decoration: none; /* ≈“«·… «· ”ÿÌ— */
+    }
+    
+    a:hover {
+        text-decoration: underline; /*  ”ÿÌ— «·—«»ÿ ⁄‰œ «· „—Ì— */
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <h1>Long In</h1>
+            <form id="loginForm">
+                <input type="email" id="username" placeholder="useremail" required>
+                <input type="password" id="password" placeholder="password " required>
+                <button type="submit"> Long In</button>
+            </form>
+            <p> No Accont <a href="signup">Sign Up</a></p>
+        </div>
+    </div>
+</body>

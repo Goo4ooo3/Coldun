@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Shop Application</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(to right, #ff7e5f, #);
+  }
+
+    .screen {
+      width: 90%;
+      max-width: 400px;
+      background: #;
+      border-radius: 200px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 4.2);
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: bold;
+      color: #b30000;
+      margin-bottom: 20px;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    .input-group input {
+      width: 95%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+
+    .button {
+      width: 80%;
+      padding: 10px;
+      background: #b30000;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background: #990000;
+    }
+
+    .link {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .link a {
+      color: #b30000;
+      text-decoration: none;
+    }
+
+    .link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- الشاشة الرئيسية -->
+  <div class="screen">
+    <div class="logo"> 𝒢𝑜   𝓂�</div>
+    <p> New Email  </p>
+    <button class="button" onclick="showScreen('login')">تسجيل الدخول</button>
+    <button class="button" style="margin-top: 10px;" onclick="showScreen('signup')">إنشاء حساب</button>
+  </div>
+
+  <!-- شاشة تسجيل الدخول -->
+  <div class="screen" id="login" style="display: none;">
+    <div class="logo">تسجيل الدخول</div>
+    <form>
+      <div class="input-group">
+        <label for="email">البريد الإلكتروني</label>
+        <input type="email" id="email" placeholder="أدخل بريدك الإلكتروني">
+      </div>
+      <div class="input-group">
+        <label for="password">كلمة المرور</label>
+        <input type="password" id="password" placeholder="أدخل كلمة المرور">
+      </div>
+      <button type="submit" class="button">دخول</button>
+    </form>
+    <div class="link">
+      <a href="#" onclick="showScreen('forgot')">نسيت كلمة المرور؟</a>
+    </div>
+  </div>
+
+  <!-- شاشة التسجيل -->
+  <div class="screen" id="signup" style="display: none;">
+    <div class="logo">إنشاء حساب</div>
+    <form>
+      <div class="input-group">
+        <label for="name">الاسم الكامل</label>
+        <input type="text" id="name" placeholder="أدخل اسمك الكامل">
+      </div>
+      <div class="input-group">
+        <label for="email-signup">البريد الإلكتروني</label>
+        <input type="email" id="email-signup" placeholder="أدخل بريدك الإلكتروني">
+      </div>
+      <div class="input-group">
+        <label for="password-signup">كلمة المرور</label>
+        <input type="password" id="password-signup" placeholder="أدخل كلمة المرور">
+      </div>
+      <button type="submit" class="button">تسجيل</button>
+    </form>
+  </div>
+
+  <!-- شاشة استعادة كلمة المرور -->
+  <div class="screen" id="forgot" style="display: none;">
+    <div class="logo">استعادة كلمة المرور</div>
+    <p>أدخل بريدك الإلكتروني لإعادة تعيين كلمة المرور</p>
+    <form>
+      <div class="input-group">
+        <label for="email-forgot">البريد الإلكتروني</label>
+        <input type="email" id="email-forgot" placeholder="أدخل بريدك الإلكتروني">
+      </div>
+      <button type="submit" class="button">إرسال</button>
+    </form>
+  </div>
+
+  <script>
+    function showScreen(screenId) {
+      document.querySelectorAll('.screen').forEach(screen => {
+        screen.style.display = 'none';
+      });
+      document.getElementById(screenId).style.display = 'block';
+    }
+  </script>
+</body>
+</html>

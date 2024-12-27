@@ -1,0 +1,63 @@
+
+
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة هاكر</title>
+    <style>
+        body {
+            background-color: black;
+            color: #00ff00; /* لون النص الأخضر */
+            font-family: 'Courier New', Courier, monospace; /* خط يشبه الخطوط المستخدمة في البرمجة */
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 300px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #00ff00;
+            background-color: black;
+            color: #00ff00;
+            font-size: 18px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #00ff00;
+            color: black;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        button:hover {
+            background-color: #00cc00;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>مرحبًا بك في ☠️نظام الهاكر</h1>
+    <p>يرجى إدخال بيانات الاعتماد الخاصة بك:</p>
+    
+    <input type="text" placeholder="البريد الإلكتروني" id="email">
+    <input type="password" placeholder="كلمة المرور" id="password">
+    <br>
+    <button onclick="login()">تسجيل الدخول</button>
+
+    <script>
+        function login() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            alert("تم تهكيرك: " + email + "\nتم تهكير: " + password);
+        }
+    </script>
+
+</body>
+</html>

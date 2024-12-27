@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة ويب بسيطة</title>
+    <style>body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+}
+
+.intro {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.intro img {
+    max-width: 100%;
+    height: auto;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}</style>
+</head>
+<body>
+    <header>
+        <h1>مرحبًا بك في صفحتي</h1>
+        <nav>
+            <ul>
+                <li><a href="#">الرئيسية</a></li>
+                <li><a href="#">حول</a></li>
+                <li><a href="#">اتصل بنا</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="intro">
+            <h2>مقدمة</h2>
+            <p>هذه صفحة ويب بسيطة تم إنشاؤها باستخدام HTML وCSS. يمكنك استخدامها كنقطة انطلاق لإنشاء موقعك الخاص.</p>
+            <img src="https://via.placeholder.com/400" alt="صورة توضيحية">
+            <br>
+            <button id="learnMore">تعلم المزيد</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>حقوق الطبع والنشر &copy; 2023. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <script>document.getElementById('learnMore').addEventListener('click', function() {
+    alert('شكرًا لاهتمامك! يمكنك تعلم المزيد عن تطوير الويب.');
+});</script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لعبة الثعبان</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #333;
+            margin: 0;
+        }
+        #game-board {
+            display: grid;
+            grid-template-columns: repeat(20, 20px);
+            grid-template-rows: repeat(20, 20px);
+            border: 5px solid white;
+            background-color: black;
+            position: relative;
+        }
+        .cell {
+            width: 20px;
+            height: 20px;
+        }
+        .snake {
+            background-color: green;
+            border: 1px solid #fff;
+        }
+        .food {
+            background-color: red;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-board"></div>
+
+    <script>
+        const board = document.getElementById('game-board');
+        const boardSize = 20;
+        let snake = [{ x: 10, y: 10 }];
+        let direction = { x: 0, y: 0 };
+        let food = generateFood();
+        let gameInterval;
+
+        function createBoard() {
+            for (let i = 0; i < boardSize * boardSize; i++) {
+                const cell = document.createElement('div');
+                cell.classList.add('cell');
+                board.appendChild(cell);
+            }
+        }
+
+        function updateBoard() {
+            board.innerHTML = '';
+            createBoard();
+            drawSnake();
+            drawFood();
+        }
+
+        function drawSnake() {
+            snake.forEach(segment => {
+                const index = segment.y * boardSize + segment.x;
+                const cell = board.children[index];
+                cell.classList.add('snake');
+            });
+        }
+
+        function drawFood() {
+            const index = food.y * boardSize + food.x;
+            const cell = board.children[index];
+            cell.classList.add('food');
+        }
+
+        function moveSnake() {
+            const head = { x: snake[0].x + direction.x, y: snake[0].y + direction.y };
+            
+            // التحقق من الاصطدام بالجدار
+            if (head.x < 0 || head.y < 0 || head.x >= boardSize || head.y >= boardSize) {
+                clearInterval(gameInterval);
+                alert('انتهت اللعبة! لقد اصطدمت بالجدار.');
+                return;
+            }
+
+            // التحقق من الاصطدام بجسم الثعبان
+            for (let i = 1; i < snake.length; i++) {
+                if (head.x === snake[i].x && head.y === snake[i].y) {
+                    clearInterval(gameInterval);
+                    alert('انتهت اللعبة! لقد اصطدمت بجسم الثعبان.');
+                    return;
+                }
+            }
+
+            snake.unshift(head);
+
+            // التحقق من أكل الطعام
+            if (head.x === food.x && head.y === food.y) {
+                food = generateFood();
+            } else {
+                snake.pop();
+            }
+
+            updateBoard();
+        }
+
+        function generateFood() {
+            return {
+                x: Math.floor(Math.random() * boardSize),
+                y: Math.floor(Math.random() * boardSize)
+            };
+        }
+
+        document.addEventListener('keydown', (event) => {
+            switch(event.key) {
+                case 'ArrowUp':
+                    if (direction.y === 0) direction = { x: 0, y: -1 };
+                    break;
+                case 'ArrowDown':
+                    if (direction.y === 0) direction = { x: 0, y: 1 };
+                    break;
+                case 'ArrowLeft':
+                    if (direction.x === 0) direction = { x: -1, y: 0 };
+                    break;
+                case 'ArrowRight':
+                    if (direction.x === 0) direction = { x: 1, y: 0 };
+                    break;
+            }
+        });
+
+        createBoard();
+        drawSnake();
+        drawFood();
+        gameInterval = setInterval(moveSnake, 200);
+    </script>
+</body>
+</html>

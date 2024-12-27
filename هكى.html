@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شاشة هاكر</title>
+<style>body {
+    background-color: black; /* خلفية سوداء */
+    color: lime; /* لون النص أخضر */
+    font-family: 'Courier New', Courier, monospace; /* نوع خط يشبه الخطوط المستخدمة في البرمجة */
+    text-align: center; /* محاذاة النص في المنتصف */
+    padding: 20px; /* حشوة داخلية */
+    overflow: hidden; /* إخفاء أي محتوى يتجاوز الحدود */
+}
+
+.container {
+    border: 2px solid lime; /* حدود خضراء */
+    padding: 20px; /* حشوة داخلية */
+    border-radius: 10px; /* زوايا دائرية */
+    box-shadow: 0 0 20px lime; /* ظل أخضر */
+}
+
+#output {
+    margin-top: 20px; /* هوامش علوية */
+    white-space: pre; /* الحفاظ على المسافات البيضاء */
+    font-size: 20px; /* حجم الخط */
+    height: 80vh; /* ارتفاع الحاوية */
+    overflow-y: scroll; /* إضافة شريط تمرير عمودي */
+}</style>
+</head>
+<body>
+    <div class="container">
+        <h1>نظام الهاكر</h1>
+        <div id="output"></div>
+    </div>
+
+    <script>const output = document.getElementById('output');
+
+// نصوص متكررة
+const messages = [
+    "اختراق النظام...",
+    "تجميع البيانات...",
+    "تجاوز الحماية...",
+    "الوصول إلى المعلومات...",
+    "تم الاختراق بنجاح!",
+    "تشفير البيانات...",
+    "إرسال البيانات إلى الخادم...",
+    "العملية اكتملت.",
+    "تحذير: تم اكتشاف نشاط غير مصرح به!",
+    "توقف! لا تتابع!",
+    "البيانات في خطر!",
+    "نظام التشغيل: Windows 10",
+    "IP: 192.168.1.1",
+    "تحديث النظام...",
+    "تثبيت التحديثات...",
+    "إعادة تشغيل النظام...",
+    "تسجيل الدخول...",
+    "تم تسجيل الدخول بنجاح!",
+    "تجميع المعلومات...",
+    "التحقق من الهوية...",
+    "تجاوز الحماية...",
+    "التحكم في النظام..."
+];
+
+// عرض النصوص بشكل متكرر
+setInterval(() => {
+    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+    output.innerHTML += randomMessage + "\n"; // إضافة الرسالة الجديدة
+    output.scrollTop = output.scrollHeight; // التمرير لأسفل
+}, 1000); // عرض كل رسالة كل ثانية</script>
+</body>
+</html>

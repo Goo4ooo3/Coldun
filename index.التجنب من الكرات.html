@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لعبة تجنب الكرات</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #87CEEB;
+            overflow: hidden;
+        }
+        #gameArea {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            background-color: #fff;
+            border: 2px solid #000;
+            overflow: hidden;
+        }
+        #player {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: #FF4500;
+        }
+        .ball {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: #000;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="gameArea">
+    <div id="player"></div>
+</div>
+
+<script>
+    const player = document.getElementById('player');
+    const gameArea = document.getElementById('gameArea');
+    let playerPosition = 280; // موقع اللاعب
+    let score = 0;
+
+    document.addEventListener('keydown', function(event) {
+        if (event.code === 'ArrowLeft' && playerPosition > 0) {
+            playerPosition -= 20;
+            player.style.left = playerPosition + 'px';
+        } else if (event.code === 'ArrowRight' && playerPosition < 560) {
+            playerPosition += 20;
+            player.style.left = playerPosition + 'px';
+        }
+    });
+
+    function createBall() {
+        const ball = document.createElement('div');
+        ball.classList.add('ball');
+        ball.style.left = Math.random() * 570 + 'px'; // عشوائي
+        gameArea.appendChild(ball);
+        moveBall(ball);
+    }
+
+    function moveBall(ball) {
+        let ballInterval = setInterval(() => {
+            const ballPosition = parseInt(ball.style.top) || 0;
+            if (ballPosition > 400) {
+                clearInterval(ballInterval);
+                gameArea.removeChild(ball);
+                score++;
+            } else {
+                ball.style.top = ballPosition + 5 + 'px';
+            }
+
+            // تحقق من الاصطدام
+            const playerRect = player.getBoundingClientRect();
+            const ballRect = ball.getBoundingClientRect();
+            if (
+                ballRect.bottom > playerRect.top &&
+                ballRect.top < playerRect.bottom &&
+                ballRect.right > playerRect.left &&
+                ballRect.left < playerRect.right
+            ) {
+                alert('Game Over! Score: ' + score);
+                clearInterval(ballInterval);
+                document.location.reload();
+            }
+        }, 20);
+    }
+
+    setInterval(createBall, 1000);
+</script>
+
+</body>
+</html>

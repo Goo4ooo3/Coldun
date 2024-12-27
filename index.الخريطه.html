@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>البحث عن الأماكن في خرائط جوجل</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4285F4; /* لون خرائط جوجل */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #357AE8;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>البحث عن الأماكن في خرائط جوجل</h1>
+    <input type="text" id="location" placeholder="أدخل اسم المكان" required>
+    <button onclick="searchLocation()">بحث</button>
+
+    <script>
+        function searchLocation() {
+            var location = document.getElementById("location").value;
+            var googleMapsURL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(location)}`;
+
+            // توجيه المستخدم إلى خرائط جوجل
+            window.open(googleMapsURL, '_blank');
+        }
+    </script>
+
+</body>
+</html>

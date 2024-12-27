@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>„Ê·œ √ﬂÊ«œ QR</title>
+    <style>/* styles.css */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000000;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        #qr-generator {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+        
+        input[type="text"] {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        button {
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        
+        button:hover {
+            background-color: #218838;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 20px;
+        }</style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>„Ê·œ √ﬂÊ«œ QR</h1>
+    </header>
+    <main>
+        <section id="qr-generator">
+            <h2>√œŒ· «·»Ì«‰« </h2>
+            <input type="text" id="qr-input" placeholder="√œŒ· «·‰’ √Ê «·—«»ÿ Â‰«" />
+            <button id="generate-btn"> Ê·Ìœ ﬂÊœ QR</button>
+            <button id="download-btn" style="display:none;"> Õ„Ì· ﬂÊœ QR</button>
+            <div id="qr-code" style="margin-top: 20px;"></div>
+        </section>
+    </main>
+    <footer>
+        <p>Ã„Ì⁄ «·ÕﬁÊﬁ „Õ›ÊŸ… &copy; 2023</p>
+    </footer>
+    <script>// script.js
+        $(document).ready(function() {
+            $('#generate-btn').click(function() {
+                const inputText = $('#qr-input').val();
+                if (inputText) {
+                    $('#qr-code').empty(); // „”Õ «·ﬂÊœ «·”«»ﬁ
+                    $('#qr-code').qrcode({
+                        text: inputText,
+                        width: 200,
+                        height: 200
+                    });
+                    $('#download-btn').show(); // ≈ŸÂ«— “— «· Õ„Ì·
+                } else {
+                    alert('Ì—ÃÏ ≈œŒ«· ‰’ √Ê —«»ÿ.');
+                }
+            });
+        
+            $('#download-btn').click(function() {
+                const canvas = $('#qr-code canvas')[0];
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = 'qr-code.png';
+                link.click();
+            });
+        });</script>
+</body>
+</html>

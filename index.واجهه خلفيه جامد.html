@@ -1,0 +1,174 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balloon Background</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #87CEEB, #f0f8ff); /* سماء */
+            position: relative;
+        }
+        .balloon {
+            width: 50px;
+            height: 70px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -100px;
+            animation: float 10s infinite ease-in-out;
+        }
+        .balloon::before {
+            content: "";
+            width: 2px;
+            height: 50px;
+            background-color: gray;
+            position: absolute;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-100vh) translateX(20px);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(-20px);
+                opacity: 0;
+            }
+        }
+        .balloon:nth-child(1) {
+            background-color: #FF5733;
+            left: 10%;
+            animation-duration: 8s;
+        }
+        .balloon:nth-child(2) {
+            background-color: #FFC300;
+            left: 30%;
+            animation-duration: 10s;
+        }
+        .balloon:nth-child(3) {
+            background-color: #DAF7A6;
+            left: 50%;
+            animation-duration: 12s;
+        }
+        .balloon:nth-child(4) {
+            background-color: #C70039;
+            left: 70%;
+            animation-duration: 9s;
+        }
+        .balloon:nth-child(5) {
+            background-color: #900C3F;
+            left: 90%;
+            animation-duration: 11s;
+        }
+    </style>
+</head>
+<body>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+</body>
+</html> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone-like Login Interface</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .iphone-frame {
+            width: 360px;
+            height: 420px;
+            background-color: fff;
+            border: 1px solid black;
+            border-radius: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 9.3);
+            position: relative;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .iphone-frame::before {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: black;
+            border-radius: 2px;
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        h1 {
+            margin-top: 40px;
+            font-size: 29px;
+        }
+        input[type="email"], input[type="password"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        .signin-btn {
+            width: 84%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .signin-btn:hover {
+            background-color: #0056b3;
+        }
+        .footer-text {
+            position: absolute;
+            bottom: 30px;
+            width: 
+                90%;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="iphone-frame">
+        <h1>Go!</h1>
+        <input type="email" placeholder="Enter your email">
+        <input type="password" placeholder="Enter your password">
+     
+               <button class="signin-btn">Sign In</button>
+       <div class="forgot-password">
+            <p><a href="#">Forget password</a>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balloon Background</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #87CEEB, #f0f8ff); /* سماء */
+            position: relative;
+        }
+        .balloon {
+            width: 50px;
+            height: 70px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -100px;
+            animation: float 10s infinite ease-in-out;
+        }
+        .balloon::before {
+            content: "";
+            width: 2px;
+            height: 50px;
+            background-color: gray;
+            position: absolute;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-100vh) translateX(20px);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(-20px);
+                opacity: 0;
+            }
+        }
+        .balloon:nth-child(1) {
+            background-color: #FF5733;
+            left: 10%;
+            animation-duration: 8s;
+        }
+        .balloon:nth-child(2) {
+            background-color: #FFC300;
+            left: 30%;
+            animation-duration: 10s;
+        }
+        .balloon:nth-child(3) {
+            background-color: #DAF7A6;
+            left: 50%;
+            animation-duration: 12s;
+        }
+        .balloon:nth-child(4) {
+            background-color: #C70039;
+            left: 70%;
+            animation-duration: 9s;
+        }
+        .balloon:nth-child(5) {
+            background-color: #900C3F;
+            left: 90%;
+            animation-duration: 11s;
+        }
+    </style>
+</head>
+<body>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آلة حاسبة بسيطة</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f8ff;
+            padding: 20px;
+        }
+        input[type="text"] {
+            width: 200px;
+            padding: 10px;
+            margin: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>آلة حاسبة بسيطة</h1>
+<input type="text" id="result" disabled>
+<br>
+<button onclick="appendToResult('1')">1</button>
+<button onclick="appendToResult('2')">2</button>
+<button onclick="appendToResult('3')">3</button>
+<button onclick="appendToResult('+')">+</button>
+<br>
+<button onclick="appendToResult('4')">4</button>
+<button onclick="appendToResult('5')">5</button>
+<button onclick="appendToResult('6')">6</button>
+<button onclick="appendToResult('-')">-</button>
+<br>
+<button onclick="appendToResult('7')">7</button>
+<button onclick="appendToResult('8')">8</button>
+<button onclick="appendToResult('9')">9</button>
+<button onclick="appendToResult('*')">*</button>
+<br>
+<button onclick="clearResult()">C</button>
+<button onclick="appendToResult('0')">0</button>
+<button onclick="calculateResult()">=</button>
+<button onclick="appendToResult('/')">/</button>
+
+<script>
+    function appendToResult(value) {
+        document.getElementById('result').value += value;
+    }
+
+    function clearResult() {
+        document.getElementById('result').value = '';
+    }
+
+    function calculateResult() {
+        const resultField = document.getElementById('result');
+        try {
+            resultField.value = eval(resultField.value);
+        } catch (error) {
+            resultField.value = 'خطأ';
+        }
+    }
+</script>
+
+</body>
+</html>

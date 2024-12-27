@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لعبة القفز</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #87CEEB;
+            overflow: hidden;
+        }
+        #gameArea {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            background-color: #fff;
+            border: 2px solid #000;
+            overflow: hidden;
+        }
+        #player {
+            position: absolute;
+            bottom: 0;
+            left: 50px;
+            width: 40px;
+            height: 40px;
+            background-color: #FF4500;
+        }
+        .obstacle {
+            position: absolute;
+            bottom: 0;
+            width: 40px;
+            height: 40px;
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+
+<div id="gameArea">
+    <div id="player"></div>
+</div>
+
+<script>
+    const player = document.getElementById('player');
+    const gameArea = document.getElementById('gameArea');
+    let isJumping = false;
+    let score = 0;
+
+    document.addEventListener('keydown', function(event) {
+        if (event.code === 'Space' && !isJumping) {
+            jump();
+        }
+    });
+
+    function jump() {
+        isJumping = true;
+        let jumpHeight = 0;
+        const jumpInterval = setInterval(() => {
+            if (jumpHeight >= 100) {
+                clearInterval(jumpInterval);
+                const fallInterval = setInterval(() => {
+                    if (jumpHeight <= 0) {
+                        clearInterval(fallInterval);
+                        isJumping = false;
+                    } else {
+                        jumpHeight -= 5;
+                        player.style.bottom = jumpHeight + 'px';
+                    }
+                }, 20);
+            } else {
+                jumpHeight += 5;
+                player.style.bottom = jumpHeight + 'px';
+            }
+        }, 20);
+    }
+
+    function createObstacle() {
+        const obstacle = document.createElement('div');
+        obstacle.classList.add('obstacle');
+        obstacle.style.left = '600px';
+        gameArea.appendChild(obstacle);
+        moveObstacle(obstacle);
+    }
+
+    function moveObstacle(obstacle) {
+        let obstacleInterval = setInterval(() => {
+            const obstaclePosition = parseInt(obstacle.style.left);
+            const playerPosition = parseInt(window.getComputedStyle(player).getPropertyValue('bottom'));
+
+            if (obstaclePosition < 50 && obstaclePosition > 0 && playerPosition < 40) {
+                alert('Game Over! Score: ' + score);
+                clearInterval(obstacleInterval);
+                document.location.reload();
+            }
+
+            if (obstaclePosition <= 0) {
+                clearInterval(obstacleInterval);
+                gameArea.removeChild(obstacle);
+                score++;
+            } else {
+                obstacle.style.left = obstaclePosition - 5 + 'px';
+            }
+        }, 20);
+    }
+
+    setInterval(createObstacle, 2000);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لعبة القفز والجري</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #87ceeb;
+        }
+        #gameArea {
+            width: 800px;
+            height: 300px;
+            background-color: #fff;
+            border: 2px solid #000;
+            position: relative;
+            overflow: hidden;
+        }
+        #player {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            position: absolute;
+            bottom: 0;
+        }
+        .obstacle {
+            width: 50px;
+            height: 50px;
+            background-color: green;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            animation: moveObstacle 3s linear infinite;
+        }
+        @keyframes moveObstacle {
+            0% { right: 0; }
+            100% { right: 800px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="gameArea">
+        <div id="player"></div>
+    </div>
+
+    <script>
+        const player = document.getElementById('player');
+        const gameArea = document.getElementById('gameArea');
+        let isJumping = false;
+        let score = 0;
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === ' ' && !isJumping) {
+                jump();
+            }
+        });
+
+        function jump() {
+            let position = 0;
+            isJumping = true;
+
+            const upInterval = setInterval(() => {
+                if (position >= 150) {
+                    clearInterval(upInterval);
+                    const downInterval = setInterval(() => {
+                        if (position <= 0) {
+                            clearInterval(downInterval);
+                            isJumping = false;
+                        }
+                        position -= 5;
+                        player.style.bottom = position + 'px';
+                    }, 20);
+                }
+                position += 5;
+                player.style.bottom = position + 'px';
+            }, 20);
+        }
+
+        function createObstacle() {
+            const obstacle = document.createElement('div');
+            obstacle.classList.add('obstacle');
+            gameArea.appendChild(obstacle);
+
+            const obstacleInterval = setInterval(() => {
+                const playerRect = player.getBoundingClientRect();
+                const obstacleRect = obstacle.getBoundingClientRect();
+
+                if (
+                    playerRect.right > obstacleRect.left &&
+                    playerRect.left < obstacleRect.right &&
+                    playerRect.bottom > obstacleRect.top
+                ) {
+                    alert('Game Over! Score: ' + score);
+                    clearInterval(obstacleInterval);
+                    window.location.reload();
+                }
+            }, 20);
+
+            setTimeout(() => {
+                obstacle.remove();
+                score++;
+            }, 3000); // Remove obstacle after passing the player
+        }
+
+        setInterval(createObstacle, 2000); // Create new obstacle every 2 seconds
+    </script>
+</body>
+</html>
